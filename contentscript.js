@@ -7,7 +7,11 @@ function init() {
 		var showPod = items.showPod;
 
 		var sd = subDomain(document.location.href);
-		if (sd.indexOf('cs') !== -1 || sd.indexOf('tapp') !== -1 || sd.indexOf('test') !== -1) {
+
+		var lightningSandboxPattern = /(\w+).lightning.force/;
+		var isLightningSandbox = sd.search(lightningSandboxPattern) > -1 ? true : false;
+		
+		if (sd.indexOf('cs') !== -1 || sd.indexOf('tapp') !== -1 || sd.indexOf('test') !== -1 || isLightningSandbox) {
 			changeFavicon();
 		}
 
